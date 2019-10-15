@@ -15,7 +15,10 @@
 }
 
 h1, h2, h3, h4 {
-    font-family: 'Lobster', cursive;
+    /*font-family: 'Nanum Pen Script', serif;*/
+    /*font-family: 'Lobster', cursive;*/
+    font-family: 'Nanum Pen Script';
+
 }
 
 .date {
