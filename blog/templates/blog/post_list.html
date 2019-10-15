@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <meta charset="UTF-8">
     <title>블로그 글 목록</title>
 </head>
 <body>
-    <h1><a href="/"> 장고 걸스 블로그</a></h1>
+    <div>
+        <h1><a href="/"> 장고 걸스 블로그</a></h1>
+    </div>
     {# 장고 템플릿 언어라고 구글링 #}
     {% comment %}
     {{ posts }} <br/><br/>{# 이게 장고 템플릿 변수(변수의 내용을 출력할때 사용 #}
@@ -16,11 +20,11 @@
     {% endcomment %}
 
     {% for post in posts %}
-        <div>
-            <h2><a href="">{{ post.title }}</a></h2>
-            <p>게시일시: {{ post.published_date }}</p>
-            <p>{{ post.text | linebreaks }}</p>
-        </div>
+    <div>
+        <p>게시일시: {{ post.published_date }}</p>
+        <h1><a href="">{{ post.title }}</a></h1>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </div>
     {% endfor %}
 
 </body>
