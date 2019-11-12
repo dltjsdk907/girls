@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %} {# 템플릿 태그로 정적파일을 메모리로 불러들인다는 명령 #}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Gamja+Flower&display=swap" rel="stylesheet">
+{#    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">#}
+
+    <title>블로그 글 목록</title>
+</head>
+<body>
+    <div class="page-header">
+        {% if user.is_authenticated %} <!-- 로그인 완료된 사람에게만 허락 -->
+        <a href="{% url 'post_new' %}" class="top-menu">
+            <span class="glyphicon glyphicon-plus"> {# 아이콘 #}
+            </span>
+        </a>
+        {% endif %}
+        <h1><a href="/">장고 걸스 블로그</a></h1>
+    </div>
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+            {% block content %}
+            {% endblock %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
